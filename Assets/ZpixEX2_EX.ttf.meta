@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: fc1bd8f09c39dee43a2d0447323582c1
+timeCreated: 1486896750
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 12
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ZpixEX2
+  fontNames:
+  - ZpixEX2
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
