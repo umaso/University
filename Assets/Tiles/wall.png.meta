@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 507a540eb41af994a950c3a8d07255cb
-timeCreated: 1487480720
+timeCreated: 1487482319
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -85,8 +85,8 @@ TextureImporter:
         y: 224
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 16}
@@ -111,8 +111,8 @@ TextureImporter:
         y: 224
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 16}
@@ -137,8 +137,8 @@ TextureImporter:
         y: 224
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -2, y: 16}
@@ -163,8 +163,8 @@ TextureImporter:
         y: 224
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -6, y: 16}
@@ -189,8 +189,8 @@ TextureImporter:
         y: 224
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -2, y: 16}
@@ -215,8 +215,8 @@ TextureImporter:
         y: 224
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 3}
@@ -243,8 +243,8 @@ TextureImporter:
         y: 224
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -2, y: -5}
@@ -269,8 +269,8 @@ TextureImporter:
         y: 192
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 3}
