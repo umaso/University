@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: e760393dc8f622b4aa6d465fbd87b83c
-timeCreated: 1487476413
+timeCreated: 1487605472
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: boy_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +35,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 0
   spriteMeshType: 0
   alignment: 9
@@ -68,7 +69,32 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: boy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 8}
+        - {x: -4, y: -8}
+        - {x: 4, y: -8}
+        - {x: 4, y: 8}
+      physicsShape:
+      - - {x: -3, y: 8}
+        - {x: -4, y: 7}
+        - {x: -4, y: -5}
+        - {x: -2, y: -8}
+        - {x: 3, y: -8}
+        - {x: 4, y: -6}
+        - {x: 4, y: 8}
+      tessellationDetail: 0
     outline:
     - - {x: 2, y: 11}
       - {x: -4, y: 11}
