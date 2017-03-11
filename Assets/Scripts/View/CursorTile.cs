@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Zephyr.University
+namespace Zephyr.University.View
 {
-    public class Main : MonoBehaviour
+    public class CursorTile : MonoBehaviour
     {
 
-        public Sprite CursorSprite;
-
         // Use this for initialization
-        private void Awake()
+        private void Start()
         {
-            //Cursor.SetCursor(CursorSprite.texture, Vector2.zero , CursorMode.Auto);
+
         }
 
         // Update is called once per frame
