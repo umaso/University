@@ -1,3 +1,4 @@
 ## REQUIRED ADDONS
 
 * UniRX
+* DOTween

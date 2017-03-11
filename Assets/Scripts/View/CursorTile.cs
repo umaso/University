@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -29,7 +30,7 @@ namespace Zephyr.University.View
             //以2d tile的比例缩小后转cell pos
             CurrentCell = GroundTilemap.WorldToCell(mouseInWorld);
             //更新cursor位置
-            transform.position = GroundTilemap.CellToWorld(CurrentCell);
+            transform.DOMove(GroundTilemap.CellToWorld(CurrentCell), 0.2f);
         }
     }
 }
