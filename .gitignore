@@ -29,4 +29,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Publish/
-Assets/Plugins/UniRx/
+Assets/Addons/UniRx/
