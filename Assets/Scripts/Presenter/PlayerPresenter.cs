@@ -27,18 +27,33 @@ namespace Zephyr.University.Presenter
         /// </summary>
         public Button BuildButton;
 
-        public CursorTilePresenter CursorTile;
-
         private Vector3Int _cellPlanningStart, _cellPlanningEnd;
+
+        public Tilemap GroundTilemap;
+
+        /// <summary>
+        /// 光标当前所在的Cell
+        /// </summary>
+        public Vector3Int CurrentCell;
+
+        private Vector3Int _newCell;
 
         // Use this for initialization
         private void Start()
         {
+            //更新鼠标当前cell
+            Observable.EveryUpdate()
+                .Subscribe(l =>
+            {
+                //行为：更新光标位置
+                Vector2 mouseInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                CurrentCell = GroundTilemap.WorldToCell(mouseInWorld);
+            });
+
             //按下建设按钮就进入规划状态
             BuildButton.OnClickAsObservable().Subscribe(_ =>
             {
                 CurrentOperateState = OperateState.Planning;
-                CursorTile.Active.Value = true;
             });
 
             //规划状态下右键点击进入待机状态
@@ -48,7 +63,6 @@ namespace Zephyr.University.Presenter
                 .Subscribe(_ =>
                 {
                     CurrentOperateState = OperateState.Idle;
-                    CursorTile.Active.Value = false;
                 });
 
             //规划状态下获取左键点下时的起始tile
@@ -57,7 +71,7 @@ namespace Zephyr.University.Presenter
                 .Where(l => Input.GetMouseButtonDown(0))
                 .Subscribe(_ =>
                 {
-                    _cellPlanningStart = CursorTile.CurrentCell;
+                    _cellPlanningStart = CurrentCell;
                     Debug.Log("Start = "+_cellPlanningStart);
                 });
 
@@ -67,7 +81,7 @@ namespace Zephyr.University.Presenter
                 .Where(l => Input.GetMouseButtonUp(0))
                 .Subscribe(_ =>
                 {
-                    _cellPlanningEnd = CursorTile.CurrentCell;
+                    _cellPlanningEnd = CurrentCell;
                     Debug.Log("End = " + _cellPlanningEnd);
                 });
         }
