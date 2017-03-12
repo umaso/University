@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Zephyr.University.View
+namespace Zephyr.University.Presenter
 {
     public class Character : MonoBehaviour
     {

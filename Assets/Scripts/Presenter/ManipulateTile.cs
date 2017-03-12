@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Zephyr.University.View
+namespace Zephyr.University.Presenter
 {
     public class ManipulateTile : MonoBehaviour
     {
