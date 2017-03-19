@@ -38,6 +38,13 @@ namespace UnityEngine.Tilemaps
 			tileData.transform = Matrix4x4.identity;
 			tileData.color = Color.white;
 
+            // 相邻tile的掩码位
+            //             ?
+            //         0   |   1
+            //     ?    -- t --   ?
+            //         3   |   2
+            //             ?
+
 			int mask = TileValue(tileMap, location + new Vector3Int(0, 1, 0)) ? 1 : 0;
 			mask += TileValue(tileMap, location + new Vector3Int(1, 0, 0)) ? 2 : 0;
 			mask += TileValue(tileMap, location + new Vector3Int(0, -1, 0)) ? 4 : 0;
@@ -62,22 +69,36 @@ namespace UnityEngine.Tilemaps
 		{
 			switch (mask)
 			{
-				case 0: return 0;
-				case 1: 
-				case 2: return 2;
-				case 4:
-				case 8: return 1;
-				case 3: return 3;
-				case 5:
-				case 10: return 4;
-				case 6:
-				case 9: return 5;
-				case 12: return 6;
-				case 7:
-				case 11: return 7;
-				case 13:
-				case 14: return 8;
-				case 15: return 9;
+                //单独
+				case 0:
+                    return 0;
+                //仅左上或右上：单列下端点
+				case 1: case 2:
+                    return 1;
+                //仅左下或右下：单列上端点
+				case 4: case 8:
+                    return 3;
+                //左上和右上：方块下角
+				case 3:
+                    return 9;
+                //左上右下或左下右上：单列中间
+				case 5: case 10:
+                    return 2;
+                //右上右下或左上左下，方块左角
+				case 6: case 9:
+                    return 4;
+                //左下右下：方块上角
+				case 12:
+                    return 6;
+                //左上右上右下或左上右上左下：方块左下边
+				case 7: case 11:
+                    return 8;
+                //左上左下右下或右上左下右下：方块左上边
+				case 13: case 14:
+                    return 5;
+                //周围全有：中心
+				case 15:
+                    return 7;
 			}
 			Debug.Log(mask);
 			return -1;
@@ -89,10 +110,10 @@ namespace UnityEngine.Tilemaps
 			{
 				case 1:
 				case 5:
-				case 7:
-				case 8:
+				case 11:
+				case 4:
 				case 9:
-				case 14:
+				case 13:
 					return Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(-1f, 1f, 1f));
 			}
 			return Matrix4x4.identity;
@@ -139,16 +160,16 @@ namespace UnityEngine.Tilemaps
 			EditorGUILayout.Space();
 			
 			EditorGUI.BeginChangeCheck();
-			tile.m_Sprites[0] = (Sprite) EditorGUILayout.ObjectField("None", tile.m_Sprites[0], typeof(Sprite), false, null);
-			tile.m_Sprites[1] = (Sprite) EditorGUILayout.ObjectField("One", tile.m_Sprites[1], typeof(Sprite), false, null);
-			tile.m_Sprites[2] = (Sprite) EditorGUILayout.ObjectField("One Alt", tile.m_Sprites[2], typeof(Sprite), false, null);
-			tile.m_Sprites[3] = (Sprite) EditorGUILayout.ObjectField("Two Top", tile.m_Sprites[3], typeof(Sprite), false, null);
-			tile.m_Sprites[4] = (Sprite) EditorGUILayout.ObjectField("Two Straight", tile.m_Sprites[4], typeof(Sprite), false, null);
-			tile.m_Sprites[5] = (Sprite) EditorGUILayout.ObjectField("Two Left", tile.m_Sprites[5], typeof(Sprite), false, null);
-			tile.m_Sprites[6] = (Sprite) EditorGUILayout.ObjectField("Two Bottom", tile.m_Sprites[6], typeof(Sprite), false, null);
-			tile.m_Sprites[7] = (Sprite) EditorGUILayout.ObjectField("Three", tile.m_Sprites[7], typeof(Sprite), false, null);
-			tile.m_Sprites[8] = (Sprite) EditorGUILayout.ObjectField("Three Alt", tile.m_Sprites[8], typeof(Sprite), false, null);
-			tile.m_Sprites[9] = (Sprite) EditorGUILayout.ObjectField("Four", tile.m_Sprites[9], typeof(Sprite), false, null);
+			tile.m_Sprites[0] = (Sprite) EditorGUILayout.ObjectField("唯一", tile.m_Sprites[0], typeof(Sprite), false, null);
+			tile.m_Sprites[1] = (Sprite) EditorGUILayout.ObjectField("单列左下", tile.m_Sprites[1], typeof(Sprite), false, null);
+			tile.m_Sprites[2] = (Sprite) EditorGUILayout.ObjectField("单列中间", tile.m_Sprites[2], typeof(Sprite), false, null);
+			tile.m_Sprites[3] = (Sprite) EditorGUILayout.ObjectField("单列右上", tile.m_Sprites[3], typeof(Sprite), false, null);
+			tile.m_Sprites[4] = (Sprite) EditorGUILayout.ObjectField("方块左角", tile.m_Sprites[4], typeof(Sprite), false, null);
+			tile.m_Sprites[5] = (Sprite) EditorGUILayout.ObjectField("方块左上边", tile.m_Sprites[5], typeof(Sprite), false, null);
+			tile.m_Sprites[6] = (Sprite) EditorGUILayout.ObjectField("方块上角", tile.m_Sprites[6], typeof(Sprite), false, null);
+			tile.m_Sprites[7] = (Sprite) EditorGUILayout.ObjectField("四周都有", tile.m_Sprites[7], typeof(Sprite), false, null);
+			tile.m_Sprites[8] = (Sprite) EditorGUILayout.ObjectField("方块左下边", tile.m_Sprites[8], typeof(Sprite), false, null);
+			tile.m_Sprites[9] = (Sprite) EditorGUILayout.ObjectField("方块下角", tile.m_Sprites[9], typeof(Sprite), false, null);
 
 			if (EditorGUI.EndChangeCheck())
 				EditorUtility.SetDirty(tile);
